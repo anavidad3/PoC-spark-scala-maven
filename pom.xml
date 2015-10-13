@@ -34,6 +34,11 @@
             <artifactId>spark-core_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
+      <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-streaming_${scala.binary.version}</artifactId>
+        <version>${spark.version}</version>
+      </dependency>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${scala.binary.version}</artifactId>
@@ -44,6 +49,12 @@
             <artifactId>spark-csv_${scala.binary.version}</artifactId>
             <version>${spark.csv.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.1.4.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_${scala.binary.version}</artifactId>
@@ -77,11 +88,6 @@
                 <version>${plugin.maven.scala.version}</version>
                 <configuration>
                     <checkMultipleScalaVersions>false</checkMultipleScalaVersions>
-                    <configuration>
-                        <skip>true</skip>
-                        <source>${java.version}</source>
-                        <target>${java.version}</target>
-                    </configuration>
                     <excludes>
                         <exclude>**/*.java</exclude>
                     </excludes>

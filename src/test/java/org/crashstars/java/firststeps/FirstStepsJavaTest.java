@@ -17,8 +17,16 @@ public class FirstStepsJavaTest {
     @Test
     public void testMock() {
         LOG.debug("JAVA: TestMock begin");
+        //Strict checking
+        Assert.assertNull(null);
+    }
+
+    @Test
+    public void testUserFileExits() {
+        LOG.debug("JAVA-TEST: TestUserFileExits begin");
         String path = getClass().getResource("/data/users.csv").getPath();
         boolean exists = new File(path).exists();
+        //Strict checking
         Assert.assertTrue(exists);
     }
 }

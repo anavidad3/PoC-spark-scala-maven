@@ -5,7 +5,7 @@ import org.slf4j.{LoggerFactory, Logger}
 /**
  * Created by navidad on 7/10/15.
  */
-trait Logging {
+trait Logging extends Serializable{
 
   @transient lazy val log : Logger = LoggerFactory.getLogger(this.getClass.getName)
 
