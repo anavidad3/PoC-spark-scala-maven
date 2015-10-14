@@ -1,4 +1,4 @@
-package org.crashstars.common.spark
+package org.crashstars.spark
 
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkConf, SparkContext}
@@ -21,6 +21,5 @@ class SparkUtils(conf: SparkConf) extends Logging {
     testCode(sc, sqlContext)
     if (sc != null) sc.stop()
   }
-
 
 }

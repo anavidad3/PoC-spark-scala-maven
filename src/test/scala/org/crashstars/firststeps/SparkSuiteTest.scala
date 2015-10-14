@@ -2,18 +2,18 @@ package org.crashstars.firststeps
 
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
-import org.crashstars.common.spark.SparkUtils
 import org.crashstars.common.{Logging, ProjectProperties}
+import org.crashstars.spark.SparkUtils
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FlatSpec, Matchers}
 
 /**
  * Created by navidad on 7/10/15.
  */
-class FirstStepsTest extends FlatSpec with Matchers with BeforeAndAfter with BeforeAndAfterAll with Logging {
+class SparkSuiteTest extends FlatSpec with Matchers with BeforeAndAfter with BeforeAndAfterAll with Logging {
 
   val conf = new SparkConf(true)
     .setMaster(ProjectProperties.getProperty("spark.master", "local[2]"))
-    .setAppName("FirstStepsTest")
+    .setAppName("SparkSuiteTest")
   val sparkUtils = new SparkUtils(conf)
 
   override def beforeAll() = {

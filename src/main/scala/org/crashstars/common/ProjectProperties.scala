@@ -22,8 +22,4 @@ object ProjectProperties extends Properties with Logging {
 
   fillProperties()
 
-  def main (args: Array[String]) {
-    println("hola")
-  }
-
 }

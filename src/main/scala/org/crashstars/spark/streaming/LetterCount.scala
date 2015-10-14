@@ -1,4 +1,4 @@
-package org.crashstars.common.spark.streaming
+package org.crashstars.spark.streaming
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.Duration

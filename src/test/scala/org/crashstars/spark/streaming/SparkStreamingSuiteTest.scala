@@ -7,7 +7,6 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.Seconds
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.{ClockWrapper, SparkConf, SparkContext}
-import org.crashstars.common.spark.streaming.{LetterCount, SparkStreamingUtils}
 import org.crashstars.common.{Logging, ProjectProperties}
 import org.scalatest.concurrent.Eventually
 import org.scalatest.time.{Millis, Span}
@@ -23,8 +22,7 @@ class SparkStreamingSuiteTest extends FlatSpec with Matchers with BeforeAndAfter
 Eventually
 with Logging {
 
-  implicit override val patienceConfig =
-    PatienceConfig(timeout = scaled(Span(1500, Millis)))
+  implicit override val patienceConfig = PatienceConfig(timeout = scaled(Span(3000, Millis)))
 
   private val master = ProjectProperties.getProperty("spark.master", "local[*]")
   private val appName = "SparkStreamingSuiteTest"
