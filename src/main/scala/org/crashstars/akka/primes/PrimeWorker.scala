@@ -15,7 +15,10 @@ class PrimeWorker extends Actor with Logging {
       logDebug(s"Number Range ${start} to ${end}")
       val result = for (i <- start to end
                         if isPrime(i) ) yield i
-      sender().!(Result(result.toSet))(context.parent)
+      //sender().!(Result(result.toSet))(context.parent)
+      sender ! Result(result.toSet)
+
+
     }
   }
 

@@ -1,9 +1,7 @@
 package org.crashstars.akka.primes
 
-import akka.actor._
-import akka.actor.Props
+import akka.actor.{Props, _}
 import akka.routing._
-import akka.actor.Actor.Receive
 
 /**
  * Created by navidad on 19/11/15.
@@ -11,7 +9,6 @@ import akka.actor.Actor.Receive
 class PrimeMaster(listenerParam: ActorRef, numberOfWorkersParam: Int) extends Actor {
 
   private val numberOfWorkers = numberOfWorkersParam
-
   private val listener = listenerParam
 
   private var numberOfResults = 0
