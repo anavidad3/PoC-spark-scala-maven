@@ -12,6 +12,7 @@ import java.util.stream.IntStream;
 
 public class Formacion1Java8 {
 
+
     private static final Logger LOG = LoggerFactory.getLogger(Formacion1Java8.class);
 
 

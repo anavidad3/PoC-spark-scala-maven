@@ -3,6 +3,7 @@ package formacion
 import org.crashstars.common.Logging
 import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll, FlatSpec, Matchers}
 
+import scala.collection.immutable.IndexedSeq
 import scala.util.Random
 
 
@@ -16,7 +17,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
   }
 
   def avg(numIterations: Integer): Double = {
-    var result = 0l
+    var result = 0L
     var count = 0
     for (i <- 0 until numIterations) {
       result += i
@@ -30,7 +31,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
   }
 
   def avgWithWhile(numIterations: Integer): Double = {
-    var result = 0l
+    var result = 0L
     var count = 0
     while (count < numIterations) {
       result += count
@@ -43,7 +44,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     499.0 shouldBe prettyAvg(numIterations)
   }
 
-  def prettyAvg(numIterations: Integer) = {
+  def prettyAvg(numIterations: Integer): Double = {
     val list = (0 until numIterations).toList
     list.sum / list.size
   }
@@ -53,7 +54,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     toSet should be(toUpperCaseAndRemoveDuplicate)
   }
 
-  def toUpperCaseAndRemoveDuplicate = {
+  def toUpperCaseAndRemoveDuplicate: Set[String] = {
     val namesLowerCase = "a,b,c,a,b,c,q,w,e,r,t,y,u,i,o".split(",").toList
     val collect = namesLowerCase
       .map(name => name.toUpperCase)
@@ -67,7 +68,14 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     -836442134 shouldBe matrix(1)(1)
   }
 
-  def fillMatrix(dimX: Int, dimY: Int) = {
+  def generateArrayOfRandom(size: Int): Array[Int] = {
+    val rand = new Random(3)
+    val arrayRand: IndexedSeq[Int] = for( i <- 0 to size ) yield rand.nextInt()
+    arrayRand.toArray
+  }
+
+
+  def fillMatrix(dimX: Int, dimY: Int): Array[Array[Int]] = {
     val rand = new Random(3)
     Array.fill(dimX, dimY)(rand.nextInt)
   }
@@ -79,9 +87,9 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     -1975716582 shouldBe cube(2)(2)(2)
   }
 
-  def fillCube(dimX: Int, dimY: Int, dimZ: Int = 10) = {
+  def fillCube(dimX: Int, dimY: Int, dimZ: Int = 10): Array[Array[Array[Int]]] = {
     val rand = new Random(3)
-    val cube = Array.ofDim[Int](dimX,dimY,dimZ)
+    val cube = Array.ofDim[Int](dimX, dimY, dimZ)
     for (i <- 0 until dimX; j <- 0 until dimY; k <- 0 until dimZ) {
       cube(i)(j)(k) = rand.nextInt
     }
@@ -92,7 +100,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     someOperationWithMap("o")
   }
 
-  def someOperationWithMap(letterFilter: String) = {
+  def someOperationWithMap(letterFilter: String): Unit = {
     val map = Map(("d", "Dog"), ("b", "Bird"), ("f", "Frog"), ("c", "Cat"))
     val mapFilter = map.filter(entry => entry._2.contains(letterFilter)) + ("h" -> "horse")
     logDebug(s"$mapFilter")
@@ -100,7 +108,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     logWarning(s"¡¡¡¡A Zebra: $zebra!!!!")
   }
 
-  /*PATTERN MACHING EXAMPLES*/
+  /* PATTERN MACHING EXAMPLES */
 
   def toYesOrNo(choice: Int): String = choice match {
     case 1 | 2 | 3 => "yes"
@@ -108,7 +116,7 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
     case _ => "error"
   }
 
-  def isInstanceOf(obj: Any) = {
+  def isInstanceOf(obj: Any): Unit = {
     obj match {
       case "AQ_QA" => logDebug("Magic Word")
       case d: Double => logDebug(s"This is a double number:$d")
@@ -121,16 +129,16 @@ class Formacion1Scala extends FlatSpec with Matchers with BeforeAndAfter with Be
   }
 
   /**
-   * This method is just one example.
-   * A simple way to calculate factorial may be:
-   * def fact(n:Int) = (1 to n).foldLeft(1) { (x,y) => x * y }
-   */
+    * This method is just one example.
+    * A simple way to calculate factorial may be:
+    * def fact(n:Int) = (1 to n).foldLeft(1) { (x,y) => x * y }
+    */
   def fact(n: Int): Int = n match {
     case 0 => 1
     case n => n * fact(n - 1)
   }
 
-  def length[A](list : List[A]) : Int = list match {
+  def length[A](list: List[A]): Int = list match {
     case _ :: tail => 1 + length(tail)
     case Nil => 0
   }

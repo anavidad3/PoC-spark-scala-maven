@@ -14,7 +14,9 @@ class DummyTest extends FlatSpec with Matchers with BeforeAndAfter with BeforeAn
     val path: String = getClass.getClassLoader.getResource("data/users.csv").getPath
     val file = scala.io.Source.fromFile(path)
     file.getLines().flatMap(_.split(";")).foreach(println)
+    // scalastyle:off println
     println(sumX2(1, 2))
+    // scalastyle:on println
 
     val list: Array[Int] = Array(1, 2, 3, 4, 5, 6)
     for (number <- list; result = number * 10; if (result % 2 == 0)) println(result)

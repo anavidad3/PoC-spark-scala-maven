@@ -54,7 +54,7 @@ This file is divided into 3 sections:
 
     <check level="error" class="org.scalastyle.file.FileLineLengthChecker" enabled="true">
         <parameters>
-            <parameter name="maxLineLength"><![CDATA[100]]></parameter>
+            <parameter name="maxLineLength"><![CDATA[150]]></parameter>
             <parameter name="tabSize"><![CDATA[2]]></parameter>
             <parameter name="ignoreImports">true</parameter>
         </parameters>
@@ -211,7 +211,7 @@ This file is divided into 3 sections:
 
     <!-- Doesn't seem super big deal here, and we have a lot of magic numbers ... -->
     <check level="error" class="org.scalastyle.scalariform.MagicNumberChecker" enabled="true">
-        <parameters><parameter name="ignore">-1,0,1,2,3</parameter></parameters>
+        <parameters><parameter name="ignore">-1,0,1,2,3,4</parameter></parameters>
     </check>
 
 </scalastyle>

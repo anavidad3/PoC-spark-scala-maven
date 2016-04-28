@@ -8,11 +8,11 @@ import org.scalatest.{BeforeAndAfter, FlatSpec, Matchers}
 class MapsUtilsTest extends FlatSpec with Matchers with BeforeAndAfter {
 
   before {
-    //Nothing right now
+    // Nothing right now
   }
 
   after {
-    //Nothing right now
+    // Nothing right now
   }
 
   "Calculate distance between two coordinates [LONGITUDE, LATITUDE]" should "give the distance in Kilometers" in {

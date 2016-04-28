@@ -10,7 +10,7 @@ class PropertiesTest extends FlatSpec with Matchers with BeforeAndAfter with Bef
   "Loading properties from classpath properties directory" should "read 1 file" in {
     val property: String = ProjectProperties.getProperty("working.directory")
     val propertyXY: String = ProjectProperties.getProperty("spark.master")
-    property should  be ("/tmp/PoC-spark-scala")
+    property.contains("oC-spark") shouldBe true
     propertyXY should be ("local[*]")
   }
 

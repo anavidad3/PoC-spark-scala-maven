@@ -30,7 +30,7 @@ with Logging {
   private val windowDuration = Seconds(4)
   private val slideDuration = Seconds(2)
 
-  private val checkPointDir = new File(ProjectProperties.getProperty("working.directory") + "/test1" + "/checkpoint")
+  private val checkPointDir = new File(System.getProperty("java.io.tmpdir") + "/test1" + "/checkpoint")
 
   private val numRddMock = 10
   private val conf = new SparkConf()
@@ -46,7 +46,7 @@ with Logging {
   }
 
   after {
-    //Nothing right now
+    // Nothing right now
   }
 
   "Sample set of words" should "be counted by letter" in {
